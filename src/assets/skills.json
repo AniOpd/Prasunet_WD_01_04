@@ -1,0 +1,30 @@
+[
+    {
+        "skill": "HTML",
+        "level": 90
+    },
+    {
+        "skill": "CSS",
+        "level": 70
+    },
+    {
+        "skill": "JavaScript",
+        "level": 70
+    },
+    {
+        "skill": "React",
+        "level": 60
+    },
+    {
+        "skill": "Node.js",
+        "level": 50
+    },
+    {
+        "skill": "MongoDB",
+        "level": 50
+    },
+    {
+        "skill": "C++",
+        "level": 70
+    }
+]
