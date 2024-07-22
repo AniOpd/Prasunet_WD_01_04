@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import profile from "../../assets/profile.json";
 import "./leetcodeprofile.css";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-function LeetCodeProfile() {
-  const lcu = profile.lcusername;
+function LeetCodeProfile(props) {
+  const lcu = props.name;
   const [lcData, setLcData] = useState("");
   useEffect(() => {
     fetch(`https://leetcode-stats-api.herokuapp.com/${lcu}`)
@@ -15,7 +14,7 @@ function LeetCodeProfile() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [lcu]);
 
   const data = [
     { name: "Easy", value: lcData.easySolved, color: "#4caf50" },

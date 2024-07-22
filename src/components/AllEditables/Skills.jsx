@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 function Skills() {
 
@@ -16,6 +17,7 @@ function Skills() {
 
     const skillsList = skill.map((skill,index)=>{
         return{
+            _id:skill._id,
             id:index,
             skill:skill.name,
             level:skill.proficiency
@@ -31,6 +33,7 @@ function Skills() {
                         {
                             skillsList.map((skill)=>{
                                 return (
+                                  <Link to={`/editSkill/${skill._id}`}>
                                   <div
                                     className="card p-4 flex flex-col items-center justify-center scale-90 bg-cyan-800 text-white rounded-lg shadow-lg hover:shadow-xl transition duration-200 ease-in-out transform hover:scale-100"
                                     key={skill.id}
@@ -46,11 +49,17 @@ function Skills() {
                                       <span className='block text-center'>{skill.level}%</span>
                                     </div>
                                   </div>
+                                  </Link>
                                 );
                             
                             })
                         }
                     </div>
+        </div>
+        <div>
+          <Link to='/addSkill'>
+          <button className='btn bg-blue-500 outline-none border-none rounded-sm '>Add Skill</button>
+          </Link>
         </div>
     </div>
   )

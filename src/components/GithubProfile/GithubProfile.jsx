@@ -1,9 +1,8 @@
 import React,{useEffect, useState} from "react";
-import profile from "../../assets/profile.json";
 
-function GithubProfile() {
-    const name=profile.gitHub;
-
+function GithubProfile(children) {
+    const name = children.name;
+   
     const [gitHubData,setGitHubData]=useState("");
 
     useEffect(()=>{
@@ -13,7 +12,7 @@ function GithubProfile() {
                 setGitHubData(data);
                 console.log(gitHubData);
     })
-    },[])
+    },[name])
     const pic=gitHubData.avatar_url;
 
 
