@@ -6,7 +6,7 @@ function GithubProfile(children) {
     const [gitHubData,setGitHubData]=useState("");
 
     useEffect(()=>{
-        fetch(`https://api.github.com/users/${name}`)
+        fetch(`https://api.github.com/users/${name || 'AniOpd'}`)
             .then((res)=>res.json())
             .then((data)=>{
                 setGitHubData(data);

@@ -26,6 +26,7 @@ const Experince = () => {
         fetch(`${BaseUrl}show/exp`)
             .then((res)=>res.json())
             .then((data)=>{
+                data.sort((a,b)=>a.startDate>b.startDate?-1:1);
                 setExp(data);
                 console.log(data);
         })
@@ -33,20 +34,19 @@ const Experince = () => {
 
     return (
         <>
-<div className='w-full p-2 Exp_hover'>
+        <div className='w-full p-2 Exp_hover'>
         <div className='flex justify-center w-full p-2'>
             <h2 className='text-white text-3xl text-bold uppercase text-center'>Education / Experience</h2>
         </div>
         <div className="experience-section w-full p-2">
             {exp.map((experience, index) => (
-                <div key={index} className={`experience-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-                    <div className="content block-ele">
+                <div key={index} className={`experience-item ${index % 2 === 0 ? 'left' : 'right'} block-ele`}>
+                    <div className="content w-full">
                         <h3>{experience.title}</h3>
                         <h4>{experience.company}</h4>
                         <p>{experience.description}</p>
                     </div>
-                    <span className="date">{experience.startDate}-{experience.endDate}</span>
-                    {/* <span className="date"></span> */}
+                    <span className="date">{experience.startDate}-to-{experience.endDate}</span>
                 </div>
             ))}
         </div>
