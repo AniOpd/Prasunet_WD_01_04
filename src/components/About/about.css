@@ -1,33 +1,31 @@
-
-
 @keyframes slide {
-  from{
+  from {
     transform: translateX(0);
   }
-  to{
+  to {
     transform: translateX(-100%);
   }
 }
 
-.pintro{
+.pintro {
   font-size: 0.8rem;
 }
 
-.skill{
+.skill {
   overflow: hidden;
   padding: 30px 0;
   background: transparent;
   white-space: nowrap;
 }
-.skill_Slide{
+
+.skill_Slide {
   display: inline-block;
-  animation: slide 10s linear infinite ;
+  animation: slide 10s linear infinite;
 }
-.skill_Slide p{
+
+.skill_Slide p {
   margin: 0 40px;
   color: #fff;
   font-weight: 700;
   text-shadow: 0 0 10px #ebb43c;
 }
-
-  

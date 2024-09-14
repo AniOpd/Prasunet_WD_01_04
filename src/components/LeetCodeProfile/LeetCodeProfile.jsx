@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./leetcodeprofile.css";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import axios from "axios";
 
 function LeetCodeProfile(props) {
   const lcu = props.name;
@@ -9,6 +10,7 @@ function LeetCodeProfile(props) {
     fetch(`https://leetcode-stats-api.herokuapp.com/${lcu}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setLcData(data);
       })
       .catch((err) => {

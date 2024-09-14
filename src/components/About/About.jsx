@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./about.css";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import LeetCodeProfile from "../LeetCodeProfile/LeetCodeProfile";
@@ -14,7 +14,7 @@ function About() {
   const [profileIntro, setProfileIntro] = useState("");
   const [gitHubName, setGitHubName] = useState("");
   const [leetcodeName, setLeetCodeName] = useState("");
-  const BaseUrl=import.meta.env.VITE_BASE_URL;
+  const BaseUrl = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     fetch(`${BaseUrl}show/profile`)
@@ -39,19 +39,18 @@ function About() {
     delaySpeed: 2000,
   });
 
- const skills = spanSkills.map((skill, index) => {
-    return (
-      <p className="text-white mb-6 inline-block text-2xl md:text-5xl" key={index}>
+  const skills = spanSkills.map((skill, index) => (
+    <p className="text-white mb-6 inline-block text-2xl md:text-5xl" key={index}>
       {skill}
     </p>
-    );
-  });
+  ));
+
   return (
     <>
       <div className="block-ele about_section max-w-full text-white">
         <div className="about-sm flex flex-col max-w-full lg:hidden">
           <div className="profile_img flex justify-center content-center w-full my-2">
-            <div className=" h-40 w-40 overflow-hidden rounded-full align-middle">
+            <div className="h-40 w-40 overflow-hidden rounded-full align-middle">
               <img
                 className="brightness-150 p_i"
                 src={profileImg}
@@ -69,7 +68,7 @@ function About() {
               <Cursor cursorColor="yellow" />
             </p>
             <p className="py-5 px-2 pintro text-left">{profileIntro}</p>
-            <a href={resume} target="blanck" className="w-1/2 ">
+            <a href={resume} target="blanck" className="w-1/2">
               <button className="rounded-xl p-4 w-full bg-yellow-600 hover:bg-rose-700 scale-90 hover:scale-110">
                 Resume
               </button>
@@ -89,7 +88,7 @@ function About() {
             </p>
             <p className="py-5 px-8 text-xl text-left">{profileIntro}</p>
             <div className="text-white flex justify-center content-center w-full mt-3">
-              <a href={resume} target="blanck" className="w-1/2 ">
+              <a href={resume} target="blanck" className="w-1/2">
                 <button className="rounded-xl p-4 w-full bg-yellow-600 hover:bg-rose-700 scale-90 hover:scale-110">
                   Resume
                 </button>
@@ -97,7 +96,7 @@ function About() {
             </div>
           </div>
           <div className="profile_img flex justify-center align-middle content-center w-1/2">
-            <div className=" h-96 w-96 overflow-hidden rounded-full items-center">
+            <div className="h-96 w-96 overflow-hidden rounded-full items-center">
               <img
                 className="brightness-150 p_i"
                 src={profileImg}
@@ -108,9 +107,7 @@ function About() {
         </div>
 
         <div className="skill">
-          <div className="skill_Slide">
-            {skills}
-          </div>
+          <div className="skill_Slide">{skills}</div>
           <div className="skill_Slide">{skills}</div>
         </div>
       </div>
@@ -119,10 +116,10 @@ function About() {
       </div>
       <div className="block-ele w-full flex flex-col md:flex-row lg:p-5">
         <div className="block-ele w-full lg:w-1/2 lg:p-3">
-          <LeetCodeProfile name={leetcodeName}/>
+          <LeetCodeProfile name={leetcodeName} />
         </div>
         <div className="block-ele w-full lg:w-1/2 lg:p-3">
-          <GithubProfile name={gitHubName}/>
+          <GithubProfile name={gitHubName} />
         </div>
       </div>
     </>
